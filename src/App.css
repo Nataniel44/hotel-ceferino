@@ -1,7 +1,30 @@
-.logo{
-    font-family: 'Bebas Neue', sans-serif;
+.logo {
+  font-family: "Bebas Neue", sans-serif;
 }
-.text{
+.text {
+  font-family: "Raleway", sans-serif;
+}
+#fondo {
+  background-image: url("./fondo.jpg");
+  background-size: cover;
+}
+#img {
+  height: 150px;
+}
+#boton {
+  border-radius: 0%;
+  font-family: "Raleway", sans-serif;
+}
+@media (max-width: 1024px) {
+  #fondo {
+    background-image: url("./5.jpg");
+    background-size: cover;
+  }
+}
 
-font-family: 'Raleway', sans-serif;
+@media (max-width: 416px) {
+  #fondo {
+    background-image: url("./hotel-cefe.jpg");
+    background-size: cover;
+  }
 }
