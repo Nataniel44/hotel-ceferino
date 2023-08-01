@@ -6,7 +6,7 @@ const Nav = () => {
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img
-              src="src/logo.jpg"
+              src="./logo.jpg"
               alt=""
               width="50"
               height="50"

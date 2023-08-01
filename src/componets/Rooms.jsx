@@ -5,14 +5,14 @@ const roomData = [
     id: 1,
     name: "Habitacion Deluxe Con Cama Queen",
     description: "Amplia habitación.",
-    image: "src/habitaciondeluxe.jfif",
+    image: "./habitaciondeluxe.jfif",
     price: 50000,
   },
   {
     id: 2,
     name: "Habitacion Triple Confort",
     description: "Suite lujosa con todas las comodidades.",
-    image: "src/tripleconfot.jfif",
+    image: "./tripleconfot.jfif",
     price: 50000,
   },
 

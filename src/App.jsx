@@ -48,7 +48,7 @@ function App() {
           <div className="bg-light bg-opacity-75 m-3 mt-5 p-3 border-1 border border-warning">
             <div className="row  d-flex justify-content-center align-content-center p-3 bg-secundary">
               <div className="col-12 col-md-6 p-0 d-flex justify-content-center align-content-center w-auto">
-                <img src="src/2.png" alt="" />
+                <img src="./2.png" alt="" />
               </div>
               <div className="col-md-6 col-sm-12 p-0 d-flex justify-content-center align-content-center w-auto ">
                 <h1 className="display-4 logo d-flex justify-content-center align-content-center align-items-center text-warning m-0 ">
