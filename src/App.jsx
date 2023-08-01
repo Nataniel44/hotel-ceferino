@@ -22,9 +22,9 @@ function App() {
   return (
     <>
       <Nav />
-      <main className=" bg-dark  text-white">
+      <main className=" bg-gris  text-white">
 
-        <header className="bg-dark ms-5 me-5 text-white text-center
+        <header className="bg-gris ms-5 me-5 text-white text-center
          vh-100 d-flex justify-content-center
           align-content-center flex-column border-bottom
            border-warning p-5" id="fondo">
@@ -32,10 +32,10 @@ function App() {
           <div className="bg-dark bg-opacity-75 m-5 border-1 border border-warning ">
             <div className="row justify-content-center bg-secundary">
               <div className="col-6 col-md-12 p-0 d-flex justify-content-center align-content-center w-auto ">
-                <img src="./2.png" className="w-100 p-3 shad " alt="" />
+                <img src="./2.png" className="shad  p-3  " alt="" />
               </div>
               <div className="col-md-6 col-sm-12 p-0 d-flex justify-content-center align-content-center w-auto ">
-                <h1 className="display-4 logo d-flex justify-content-center align-content-center align-items-center text-warning m-0 w-100 p-3 ">
+                <h1 className="display-4 logo d-flex justify-content-center align-content-center align-items-center text-warning m-0 w-100 p-3 shad1  ">
                   Ceferino Hotel
                 </h1>
               </div>
@@ -47,8 +47,8 @@ function App() {
               </p>
               <button
                 type="button"
-                className="btn btn-outline-secondary "
-                id="boton"
+                className="btn btn-outline-light text shad"
+                id="boton" 
                 onClick={handleButtonClick}
               >
                 Hacer Reserva!
@@ -57,11 +57,13 @@ function App() {
           </div>
         </header>
         {/* Spacer para evitar que el contenido quede oculto detrás del header */}
-        <div className="spacer-visible" ></div>
         {/**/}
         <div ref={roomsRef}>
-          <Rooms className={showHeader ? "" : "room-list-hidden"} />
+        <div className="spacer-visible text-center" >
+          
         </div>
+        </div>
+          <Rooms className={showHeader ? "" : "room-list-hidden"} />
         <Services />
         <Footer />
       </main>
