@@ -1,19 +1,49 @@
+/* Estilos generales */
 .logo {
   font-family: "Bebas Neue", sans-serif;
 }
+
 .text {
   font-family: "Raleway", sans-serif;
 }
+
+#img {
+  height: 150px;
+}
+
+#boton {
+  border-radius: 0%;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Estilos del header */
 #fondo {
   background-image: url("./fondo.jpg");
   background-size: cover;
 }
-#img {
-  height: 150px;
+
+/* Estilos adicionales para el contenido cuando el header está fijo */
+.content {
+  padding-top: 100px; /* Asegura que el contenido no quede oculto detrás del header */
 }
-#boton {
-  border-radius: 0%;
-  font-family: "Raleway", sans-serif;
+
+/* Estilos de animación del header */
+header {
+  transition: transform 0.3s ease;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Estilos del spacer */
+.spacer {
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+.spacer-visible {
+  height: 50px; /* Ajusta el tamaño según el espacio que necesites */
 }
 @media (max-width: 1024px) {
   #fondo {
@@ -27,4 +57,19 @@
     background-image: url("./hotel-cefe.jpg");
     background-size: cover;
   }
+}
+/* Agregar a tu archivo App.css o en un archivo de estilos separado */
+@keyframes slideUpAnimation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.room-list-hidden {
+  animation: slideUpAnimation 0.3s ease forwards;
 }
