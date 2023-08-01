@@ -45,19 +45,6 @@ header {
 .spacer-visible {
   height: 50px; /* Ajusta el tamaño según el espacio que necesites */
 }
-@media (max-width: 1024px) {
-  #fondo {
-    background-image: url("./5.jpg");
-    background-size: cover;
-  }
-}
-
-@media (max-width: 416px) {
-  #fondo {
-    background-image: url("./hotel-cefe.jpg");
-    background-size: cover;
-  }
-}
 /* Agregar a tu archivo App.css o en un archivo de estilos separado */
 @keyframes slideUpAnimation {
   0% {

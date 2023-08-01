@@ -75,7 +75,7 @@ function App() {
         {/* Spacer para evitar que el contenido quede oculto detrás del header */}
         <div
           className={`spacer ${showHeader ? "" : "spacer-visible"}`}
-          style={{ height: showHeader ? "0" : "100px" }}
+          style={{ height: showHeader ? "0" : "50px" }}
         ></div>
         <div ref={roomsRef}>
           <Rooms className={showHeader ? "" : "room-list-hidden"} />

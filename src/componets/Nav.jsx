@@ -3,7 +3,7 @@ const Nav = () => {
   return (
     <>
       <div className="container">
-        <nav className="navbar navbar-light bg-light fixed-top">
+        <nav className="navbar navbar-light bg-light fixed-top border-bottom border-dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img

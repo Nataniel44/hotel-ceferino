@@ -15,6 +15,20 @@ const roomData = [
     image: "./tripleconfot.jfif",
     price: 50000,
   },
+  {
+    id: 1,
+    name: "Habitacion Deluxe Con Cama Queen",
+    description: "Amplia habitación.",
+    image: "./habitaciondeluxe.jfif",
+    price: 50000,
+  },
+  {
+    id: 2,
+    name: "Habitacion Triple Confort",
+    description: "Suite lujosa con todas las comodidades.",
+    image: "./tripleconfot.jfif",
+    price: 50000,
+  },
 
   // Add more room data as needed
 ];
@@ -78,7 +92,7 @@ const Rooms = () => {
   return (
     <>
       <section className="py-4" ref={habitacionesSectionRef}>
-        <div className="container">
+        <div className="container p-3 bg-secondary">
           <h2 className="text-center mb-4">Nuestras Habitaciones</h2>
           {/* Agregamos un menú desplegable para seleccionar la habitación */}
           <div className="row mb-4">
@@ -109,9 +123,9 @@ const Rooms = () => {
 
           {/* Mostramos las tarjetas de todas las habitaciones si no hay una habitación seleccionada */}
           {habitacionSeleccionada === null ? (
-            <div className="row">
+            <div className="row ">
               {roomData.map((room) => (
-                <div className="col-6" key={room.id}>
+                <div className="col-6 col-md-4 mb-3" key={room.id}>
                   {/* Código de la carta de la habitación */}
                   <div className="card h-100 border-0 shadow">
                     <img
@@ -123,36 +137,34 @@ const Rooms = () => {
                       <h5 className="card-title">{room.name}</h5>
                       <p className="card-text">{room.description}</p>
                       <p className="card-text fw-bold">${room.price} / noche</p>
-                      <div className="row">
-                        <div className="col-12 d-flex flex-column align-items-center">
-                          {/* DatePicker para seleccionar la fecha de inicio */}
-                          <DatePicker
-                            selected={fechaInicio}
-                            onChange={handleFechaInicioSeleccionada}
-                            dateFormat="dd/MM/yyyy"
-                            className="mb-3 btn btn-outline-secondary text-primary"
-                            placeholderText="Fecha de inicio"
-                            minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
-                          />
+                      <div className="row d-flex">
+                        {/* DatePicker para seleccionar la fecha de inicio */}
+                        <DatePicker
+                          selected={fechaInicio}
+                          onChange={handleFechaInicioSeleccionada}
+                          dateFormat="dd/MM/yyyy"
+                          className="mb-3 btn btn-outline-secondary text-primary w-100"
+                          placeholderText="Fecha de inicio"
+                          minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
+                        />
 
-                          {/* DatePicker para seleccionar la fecha de finalización */}
-                          <DatePicker
-                            selected={fechaFin}
-                            onChange={handleFechaFinSeleccionada}
-                            className="mb-3 btn btn-dark"
-                            dateFormat="dd/MM/yyyy"
-                            placeholderText="Fecha de finalización"
-                            minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
-                          />
+                        {/* DatePicker para seleccionar la fecha de finalización */}
+                        <DatePicker
+                          selected={fechaFin}
+                          onChange={handleFechaFinSeleccionada}
+                          className="mb-3 btn btn-outline-secondary text-primary w-100"
+                          dateFormat="dd/MM/yyyy"
+                          placeholderText="Fecha de finalización"
+                          minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
+                        />
 
-                          {/* Botón de reserva */}
-                          <button
-                            className="btn btn-primary"
-                            onClick={() => reservarHabitacion(room)} // Llamamos a la función y pasamos la habitación seleccionada
-                          >
-                            Reservar
-                          </button>
-                        </div>
+                        {/* Botón de reserva */}
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => reservarHabitacion(room)} // Llamamos a la función y pasamos la habitación seleccionada
+                        >
+                          Reservar
+                        </button>
                       </div>
                     </div>
                   </div>
