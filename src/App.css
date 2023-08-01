@@ -6,34 +6,40 @@
 .text {
   font-family: "Raleway", sans-serif;
 }
-
+.shad{
+  box-shadow: 10px 5px 5px black;
+  border-radius: 50%;
+}
 #img {
   height: 150px;
 }
-
-#boton {
-  border-radius: 0%;
-  font-family: "Raleway", sans-serif;
+.vh-custom{
+  height: 100vh;
 }
-
+.bg-gris{
+  background-color: #636e72;
+}
 /* Estilos del header */
 #fondo {
-  background-image: url("./fondo.jpg");
+  background-image: url("./5.jpg");
   background-size: cover;
+  transition: transform 0.3s ease; /* Agregamos la transición para el efecto de animación */
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Estilos del botón */
+#boton {
+  border-radius: 0;
+  font-family: "Raleway", sans-serif;
+  transition: opacity 0.3s ease; /* Agregamos la transición para el efecto de animación */
 }
 
 /* Estilos adicionales para el contenido cuando el header está fijo */
 .content {
   padding-top: 100px; /* Asegura que el contenido no quede oculto detrás del header */
-}
-
-/* Estilos de animación del header */
-header {
-  transition: transform 0.3s ease;
-}
-
-.header-hidden {
-  transform: translateY(-100%);
 }
 
 /* Estilos del spacer */
@@ -45,7 +51,8 @@ header {
 .spacer-visible {
   height: 50px; /* Ajusta el tamaño según el espacio que necesites */
 }
-/* Agregar a tu archivo App.css o en un archivo de estilos separado */
+
+/* Animación del contenido */
 @keyframes slideUpAnimation {
   0% {
     opacity: 1;

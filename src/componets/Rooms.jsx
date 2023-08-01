@@ -92,7 +92,7 @@ const Rooms = () => {
   return (
     <>
       <section className="py-4" ref={habitacionesSectionRef}>
-        <div className="container p-3 bg-secondary">
+        <div className="container p-3 bg-dark">
           <h2 className="text-center mb-4">Nuestras Habitaciones</h2>
           {/* Agregamos un menú desplegable para seleccionar la habitación */}
           <div className="row mb-4">
