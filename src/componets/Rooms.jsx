@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
+
 const roomData = [
   {
     id: 1,
@@ -16,14 +17,14 @@ const roomData = [
     price: 50000,
   },
   {
-    id: 1,
+    id: 3,
     name: "Habitacion Deluxe Con Cama Queen",
     description: "Amplia habitación.",
     image: "./habitaciondeluxe.jfif",
     price: 50000,
   },
   {
-    id: 2,
+    id: 4,
     name: "Habitacion Triple Confort",
     description: "Suite lujosa con todas las comodidades.",
     image: "./tripleconfot.jfif",
@@ -91,150 +92,160 @@ const Rooms = () => {
 
   return (
     <>
-      <section className="py-4" ref={habitacionesSectionRef}>
-        <div className="container p-3 bg-secondary">
-          <h2 className="text-center mb-4">Nuestras Habitaciones</h2>
-          {/* Agregamos un menú desplegable para seleccionar la habitación */}
-          <div className="row mb-4">
-            <div className="col">
-              <div className="form-group">
-                <label htmlFor="habitacionSelect">
-                  Selecciona una habitación:
-                </label>
-                <select
-                  id="habitacionSelect"
-                  className="form-control"
-                  value={
-                    habitacionSeleccionada ? habitacionSeleccionada.id : "null"
-                  }
-                  onChange={handleHabitacionSeleccionada}
-                >
-                  <option value="null">-- Todas las habitaciones --</option>
-                  {roomData.map((room) => (
-                    <option key={room.id} value={room.id}>
-                      {room.name}
-                    </option>
-                  ))}
-                </select>
+      <div className="rooms-container fade-in">
+        <section className="py-4" ref={habitacionesSectionRef}>
+          <div className="container pt-2 bg-secondary p-5">
+            <h2 className="text-center m-0 display-5">Nuestras Habitaciones</h2>
+            {/* Agregamos un menú desplegable para seleccionar la habitación */}
+            <div className="row mb-4">
+              <div className="col">
+                <div className="form-group">
+                  <label htmlFor="habitacionSelect">
+                    Selecciona una habitación:
+                  </label>
+                  <select
+                    id="habitacionSelect"
+                    className="form-control"
+                    value={
+                      habitacionSeleccionada
+                        ? habitacionSeleccionada.id
+                        : "null"
+                    }
+                    onChange={handleHabitacionSeleccionada}
+                  >
+                    <option value="null">-- Todas las habitaciones --</option>
+                    {roomData.map((room) => (
+                      <option key={room.id} value={room.id}>
+                        {room.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          {/* Fin del menú desplegable */}
+            {/* Fin del menú desplegable */}
 
-          {/* Mostramos las tarjetas de todas las habitaciones si no hay una habitación seleccionada */}
-          {habitacionSeleccionada === null ? (
-            <div className="row ">
-              {roomData.map((room) => (
-                <div className="col-6 col-md-4 mb-3" key={room.id}>
-                  {/* Código de la carta de la habitación */}
-                  <div className="card h-100 border-0 shadow">
+            {/* Mostramos las tarjetas de todas las habitaciones si no hay una habitación seleccionada */}
+            {habitacionSeleccionada === null ? (
+              <div className="row ">
+                {roomData.map((room) => (
+                  <div
+                    className="col-6 col-md-4 mb-3 d-flex  justify-content-center p-0"
+                    key={room.id}
+                  >
+                    {/* Código de la carta de la habitación */}
+                    <div className="card border-0 shadow w-75">
+                      <img
+                        src={room.image}
+                        className="card-img-top rounded-top"
+                        alt={room.name}
+                      />
+
+                      <div className="card-body bg-light rounded-bottom p-1">
+                        <h5 className="card-title">{room.name}</h5>
+                        <p className="card-text">{room.description}</p>
+                        <p className="card-text fw-bold">
+                          ${room.price} / noche
+                        </p>
+                        <div className="col-12 d-flex flex-column align-items-center">
+                          {/* DatePicker para seleccionar la fecha de inicio */}
+                          <DatePicker
+                            selected={fechaInicio}
+                            onChange={handleFechaInicioSeleccionada}
+                            dateFormat="dd/MM/yyyy"
+                            className="mb-2 btn btn-outline-secondary text-primary w-100"
+                            placeholderText="Fecha de inicio"
+                            minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
+                          />
+
+                          {/* DatePicker para seleccionar la fecha de finalización */}
+                          <DatePicker
+                            selected={fechaFin}
+                            onChange={handleFechaFinSeleccionada}
+                            className="mb-2 btn btn-outline-secondary text-primary w-100"
+                            dateFormat="dd/MM/yyyy"
+                            placeholderText="Fecha de finalización"
+                            minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
+                          />
+
+                          {/* Botón de reserva */}
+                          <button
+                            className="btn btn-primary "
+                            onClick={() => reservarHabitacion(room)} // Llamamos a la función y pasamos la habitación seleccionada
+                          >
+                            Reservar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Fin de la carta de la habitación */}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              // Mostramos solo la tarjeta de la habitación seleccionada
+              <div className="row row-cols-1 row-cols-md-3 g-4">
+                <div className="col" key={habitacionSeleccionada.id}>
+                  {/* Código de la carta de la habitación seleccionada */}
+                  <div className="card h-100 border-0 shadow ">
                     <img
-                      src={room.image}
-                      className="card-img-top rounded-top"
-                      alt={room.name}
+                      src={habitacionSeleccionada.image}
+                      className="card-img-top rounded-top w-100"
+                      alt={habitacionSeleccionada.name}
                     />
                     <div className="card-body bg-light rounded-bottom">
-                      <h5 className="card-title">{room.name}</h5>
-                      <p className="card-text">{room.description}</p>
-                      <p className="card-text fw-bold">${room.price} / noche</p>
-                      <div className="row d-flex">
-                        {/* DatePicker para seleccionar la fecha de inicio */}
-                        <DatePicker
-                          selected={fechaInicio}
-                          onChange={handleFechaInicioSeleccionada}
-                          dateFormat="dd/MM/yyyy"
-                          className="mb-3 btn btn-outline-secondary text-primary w-100"
-                          placeholderText="Fecha de inicio"
-                          minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
-                        />
+                      <h5 className="card-title">
+                        {habitacionSeleccionada.name}
+                      </h5>
+                      <p className="card-text">
+                        {habitacionSeleccionada.description}
+                      </p>
+                      <p className="card-text fw-bold">
+                        ${habitacionSeleccionada.price} / noche
+                      </p>
+                      <div className="row">
+                        <div className="col-12 d-flex flex-column align-items-center">
+                          {/* DatePicker para seleccionar la fecha de inicio */}
+                          <DatePicker
+                            selected={fechaInicio}
+                            onChange={handleFechaInicioSeleccionada}
+                            dateFormat="dd/MM/yyyy"
+                            className="mb-3 btn btn-outline-secondary text-primary w-100"
+                            placeholderText="Fecha de inicio"
+                            minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
+                          />
 
-                        {/* DatePicker para seleccionar la fecha de finalización */}
-                        <DatePicker
-                          selected={fechaFin}
-                          onChange={handleFechaFinSeleccionada}
-                          className="mb-3 btn btn-outline-secondary text-primary w-100"
-                          dateFormat="dd/MM/yyyy"
-                          placeholderText="Fecha de finalización"
-                          minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
-                        />
+                          {/* DatePicker para seleccionar la fecha de finalización */}
+                          <DatePicker
+                            selected={fechaFin}
+                            onChange={handleFechaFinSeleccionada}
+                            className="mb-3 btn btn-outline-secondary text-primary w-100"
+                            dateFormat="dd/MM/yyyy"
+                            placeholderText="Fecha de finalización"
+                            minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
+                          />
+                          {/* ... (Código de DatePicker y botón de reserva) */}
 
-                        {/* Botón de reserva */}
-                        <button
-                          className="btn btn-primary"
-                          onClick={() => reservarHabitacion(room)} // Llamamos a la función y pasamos la habitación seleccionada
-                        >
-                          Reservar
-                        </button>
+                          {/* Botón de reserva */}
+                          <button
+                            className="btn btn-primary"
+                            onClick={() =>
+                              reservarHabitacion(habitacionSeleccionada)
+                            } // Llamamos a la función y pasamos la habitación seleccionada
+                          >
+                            Reservar
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  {/* Fin de la carta de la habitación */}
+                  {/* Fin de la carta de la habitación seleccionada */}
                 </div>
-              ))}
-            </div>
-          ) : (
-            // Mostramos solo la tarjeta de la habitación seleccionada
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-              <div className="col" key={habitacionSeleccionada.id}>
-                {/* Código de la carta de la habitación seleccionada */}
-                <div className="card h-100 border-0 shadow">
-                  <img
-                    src={habitacionSeleccionada.image}
-                    className="card-img-top rounded-top"
-                    alt={habitacionSeleccionada.name}
-                  />
-                  <div className="card-body bg-light rounded-bottom">
-                    <h5 className="card-title">
-                      {habitacionSeleccionada.name}
-                    </h5>
-                    <p className="card-text">
-                      {habitacionSeleccionada.description}
-                    </p>
-                    <p className="card-text fw-bold">
-                      ${habitacionSeleccionada.price} / noche
-                    </p>
-                    <div className="row">
-                      <div className="col-12 d-flex flex-column align-items-center">
-                        {/* DatePicker para seleccionar la fecha de inicio */}
-                        <DatePicker
-                          selected={fechaInicio}
-                          onChange={handleFechaInicioSeleccionada}
-                          dateFormat="dd/MM/yyyy"
-                          className="mb-3 btn btn-outline-secondary text-primary"
-                          placeholderText="Fecha de inicio"
-                          minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
-                        />
-
-                        {/* DatePicker para seleccionar la fecha de finalización */}
-                        <DatePicker
-                          selected={fechaFin}
-                          onChange={handleFechaFinSeleccionada}
-                          className="mb-3 btn btn-dark"
-                          dateFormat="dd/MM/yyyy"
-                          placeholderText="Fecha de finalización"
-                          minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
-                        />
-                        {/* ... (Código de DatePicker y botón de reserva) */}
-
-                        {/* Botón de reserva */}
-                        <button
-                          className="btn btn-primary"
-                          onClick={() =>
-                            reservarHabitacion(habitacionSeleccionada)
-                          } // Llamamos a la función y pasamos la habitación seleccionada
-                        >
-                          Reservar
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Fin de la carta de la habitación seleccionada */}
               </div>
-            </div>
-          )}
-        </div>
-      </section>
+            )}
+          </div>
+        </section>
+      </div>
     </>
   );
 };

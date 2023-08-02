@@ -1,7 +1,7 @@
+// Inside the App.js component
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
 import Nav from "./componets/Nav";
-import "react-datepicker/dist/react-datepicker.css";
 import Rooms from "./componets/Rooms";
 import Services from "./componets/Services";
 import Footer from "./componets/Footer";
@@ -40,11 +40,10 @@ function App() {
       <main className="container mt-2">
         <header
           className={`bg-dark text-white text-center vh-100 d-flex justify-content-center align-content-center flex-column border-bottom border-warning ${
-            showHeader ? "" : "header-hidden"
+            showHeader ? "" : "header-hidden "
           }`}
           id="fondo"
         >
-          {/* Resto del contenido del header */}
           <div className="bg-light bg-opacity-75 m-3 mt-5 p-3 border-1 border border-warning">
             <div className="row  d-flex justify-content-center align-content-center p-3 bg-secundary">
               <div className="col-12 col-md-6 p-0 d-flex justify-content-center align-content-center w-auto">
@@ -72,13 +71,12 @@ function App() {
             </div>
           </div>
         </header>
-        {/* Spacer para evitar que el contenido quede oculto detrás del header */}
         <div
           className={`spacer ${showHeader ? "" : "spacer-visible"}`}
           style={{ height: showHeader ? "0" : "50px" }}
         ></div>
         <div ref={roomsRef}>
-          <Rooms className={showHeader ? "" : "room-list-hidden"} />
+          <Rooms />
         </div>
         <Services />
         <Footer />

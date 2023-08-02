@@ -23,9 +23,6 @@
 }
 
 /* Estilos adicionales para el contenido cuando el header está fijo */
-.content {
-  padding-top: 100px; /* Asegura que el contenido no quede oculto detrás del header */
-}
 
 /* Estilos de animación del header */
 header {
@@ -46,17 +43,23 @@ header {
   height: 50px; /* Ajusta el tamaño según el espacio que necesites */
 }
 /* Agregar a tu archivo App.css o en un archivo de estilos separado */
-@keyframes slideUpAnimation {
-  0% {
+/* Add this animation to create the fade-in effect */
+/* Add this animation to create the fade-in effect */
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
+}
+
+.fade-in {
+  animation: fadeInAnimation 1s ease;
 }
 
 .room-list-hidden {
-  animation: slideUpAnimation 0.3s ease forwards;
+  animation: slideUpAnimation 0.1s ease forwards;
 }
