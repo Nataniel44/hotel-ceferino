@@ -93,15 +93,15 @@ function App() {
             <h2 className="text display-4">¿Por qué elegirnos?</h2>
             <div className="iconos-hotel">
               <div className="icono">
-                <img src="/ubi.png" alt="Icono 1" />
+                <img src="./ubi.png" alt="Icono 1" />
                 <p>Ubicación céntrica</p>
               </div>
               <div className="icono">
-                <img src="/lujo.png" alt="Icono 2" />
+                <img src="./lujo.png" alt="Icono 2" />
                 <p>Comodidades de lujo</p>
               </div>
               <div className="icono">
-                <img src="/atencion.png" alt="Icono 3" />
+                <img src="./atencion.png" alt="Icono 3" />
                 <p>Atención personalizada</p>
               </div>
             </div>

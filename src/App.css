@@ -2,7 +2,9 @@
 .logo {
   font-family: "Bebas Neue", sans-serif;
 }
-
+li {
+  list-style: none;
+}
 .text {
   font-family: "Raleway", sans-serif;
 }

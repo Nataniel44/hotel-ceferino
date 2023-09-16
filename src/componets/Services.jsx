@@ -7,27 +7,27 @@ const Services = () => {
       name: "Resto Bar",
       description:
         "Disfruta de nuestro bar con deliciosos platos y servicio al cuarto.",
-      image: "src/bar.jpg",
+      image: "./bar.jpg",
     },
     {
       id: 2,
       name: "Recepción",
       description:
         "Recepción 24 horas, Cambio de divisas, Servicio de habitaciones, Asistencia en excursiones / Servicio de entradas",
-      image: "src/recepcion.jpg",
+      image: "./recepcion.jpg",
     },
     {
       id: 3,
       name: "Comedor",
       description: "Bar de aperitivos.",
-      image: "src/comedor.jfif",
+      image: "./comedor.jfif",
     },
     {
       id: 4,
       name: "Recepción",
       description:
         "Recepción 24 horas, Cambio de divisas, Servicio de habitaciones, Asistencia en excursiones / Servicio de entradas",
-      image: "src/recepcion.jpg",
+      image: "./recepcion.jpg",
     },
     // Add more service data as needed
   ];
