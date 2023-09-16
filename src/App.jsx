@@ -54,13 +54,11 @@ function App() {
     <>
       <Nav />
       <main className=" bg-gris  text-white">
-        <header
-          className="bg-gris text-white text-center
-         vh-100 d-flex justify-content-center align-items-center
+
+        <header className="bg-gris text-white text-center
+         vh-100 d-flex justify-content-center
           align-content-center flex-column border-bottom
-           "
-          id="fondo"
-        >
+           border-warning " id="fondo">
           {/* Resto del contenido del header */}
           <div className="bg-dark bg-opacity-75 rounded p-3 ">
             <div className=" ">
