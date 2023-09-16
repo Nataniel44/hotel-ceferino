@@ -30,7 +30,7 @@ li {
 #fondo {
   background-color: #e6e6e6;
   background-image: url("/5.jpg");
-  background-size: 1400px;
+  background-size: cover;
   transition: transform 0.3s ease; /* Agregamos la transición para el efecto de animación */
 }
 @media only screen and (max-width: 576px) {
