@@ -3,7 +3,7 @@ const Nav = () => {
   return (
     <>
       <div className="">
-        <nav className="navbar navbar-dark bg-header fixed-top border-bottom border-warning">
+        <nav className="navbar navbar-dark  fixed-top ">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img

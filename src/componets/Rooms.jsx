@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const roomData = [
   {
@@ -94,9 +95,11 @@ const Rooms = () => {
     <>
       <section className="" ref={habitacionesSectionRef}>
         <div className="container my-3">
-          <h2 className="text-center mb-4 display-3 text-black">Nuestras Habitaciones</h2>
+          <h2 className="text-center mb-1 display-4 text-black ">
+            Nuestras Habitaciones
+          </h2>
           {/* Agregamos un menú desplegable para seleccionar la habitación */}
-          <div className="row mb-4">
+          <div className="row justify-content-center">
             <div className="col">
               <div className="form-group">
                 <label htmlFor="habitacionSelect">
@@ -123,14 +126,14 @@ const Rooms = () => {
 
             {/* Mostramos las tarjetas de todas las habitaciones si no hay una habitación seleccionada */}
             {habitacionSeleccionada === null ? (
-              <div className="row ">
+              <div className="row p-0">
                 {roomData.map((room) => (
                   <div
-                    className="col-6 col-md-4 mb-3 d-flex  justify-content-center p-0"
+                    className=" mb-3 d-flex justify-content-center p-0"
                     key={room.id}
                   >
                     {/* Código de la carta de la habitación */}
-                    <div className="card border-0 shadow w-75">
+                    <div className="card border-0 shadow ">
                       <img
                         src={room.image}
                         className="card-img-top rounded-top"
@@ -166,7 +169,7 @@ const Rooms = () => {
 
                           {/* Botón de reserva */}
                           <button
-                            className="btn btn-primary "
+                            className="btn btn-primary w-100"
                             onClick={() => reservarHabitacion(room)} // Llamamos a la función y pasamos la habitación seleccionada
                           >
                             Reservar
@@ -180,10 +183,10 @@ const Rooms = () => {
               </div>
             ) : (
               // Mostramos solo la tarjeta de la habitación seleccionada
-              <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col" key={habitacionSeleccionada.id}>
+              <div className="row row-cols-1 row-cols-md-4 mt-2 p-0">
+                <div className="p-5 pt-0" key={habitacionSeleccionada.id}>
                   {/* Código de la carta de la habitación seleccionada */}
-                  <div className="card h-100 border-0 shadow ">
+                  <div className="card h-100 border-0 shadow">
                     <img
                       src={habitacionSeleccionada.image}
                       className="card-img-top rounded-top w-100"
@@ -240,10 +243,8 @@ const Rooms = () => {
               </div>
             )}
           </div>
-          </div>
-        </section>
-          
-      
+        </div>
+      </section>
     </>
   );
 };
