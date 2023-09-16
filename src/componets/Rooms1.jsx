@@ -87,6 +87,7 @@ const Room1 = ({ habitaciones }) => {
                     className="mb-2 btn btn-outline-dark  w-100"
                     placeholderText="Fecha de inicio"
                     minDate={new Date()} // Impide seleccionar fechas anteriores a la fecha actual
+                    readOnly
                   />
 
                   {/* DatePicker para seleccionar la fecha de finalización */}
@@ -97,6 +98,7 @@ const Room1 = ({ habitaciones }) => {
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Fecha de finalización"
                     minDate={fechaInicio} // Impide seleccionar fechas anteriores a la fecha de inicio
+                    readOnly
                   />
 
                   {/* Botón de reserva */}
