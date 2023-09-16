@@ -57,8 +57,7 @@ function App() {
         <header
           className="bg-gris text-white text-center
          vh-100 d-flex justify-content-center
-          align-content-center flex-column border-bottom
-           border-warning "
+          align-content-center flex-column "
           id="fondo"
         >
           {/* Resto del contenido del header */}
@@ -89,7 +88,7 @@ function App() {
           </div>
         </header>
         <section id="porque-elegirnos" className="porque-elegirnos">
-          <div className="container text-center text-black  bg-opacity-75 rounded">
+          <div className="container text-center text-black border-black border-top border-bottom border-1">
             <h2 className="text display-4">¿Por qué elegirnos?</h2>
             <div className="iconos-hotel">
               <div className="icono">
@@ -108,9 +107,9 @@ function App() {
           </div>
         </section>
 
-        <div className="d-flex justify-content-center align-content-center container">
+        <div className="d-flex justify-content-center align-content-center container p-3">
           <div className="row p-2">
-            <div ref={roomsRef} className="col-12 col-md-6 col-lg-4 py-5 pb-1">
+            <div ref={roomsRef} className="col-12 col-md-6 col-lg-4  pb-1">
               <Rooms1 habitaciones={habitaciones} />
             </div>
 
