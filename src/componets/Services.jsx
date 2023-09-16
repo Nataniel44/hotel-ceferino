@@ -7,7 +7,7 @@ const Services = () => {
       name: "Resto Bar",
       description:
         "Disfruta de nuestro bar con deliciosos platos y servicio al cuarto.",
-      image: "./bar.jpg",
+      image: "./bar.JPG",
     },
     {
       id: 2,
