@@ -54,11 +54,13 @@ function App() {
     <>
       <Nav />
       <main className=" bg-gris  text-white">
-
-        <header className="bg-gris text-white text-center
+        <header
+          className="bg-gris text-white text-center
          vh-100 d-flex justify-content-center
           align-content-center flex-column border-bottom
-           border-warning " id="fondo">
+           border-warning "
+          id="fondo"
+        >
           {/* Resto del contenido del header */}
           <div className="bg-dark bg-opacity-75 rounded p-3 ">
             <div className=" ">
@@ -70,7 +72,7 @@ function App() {
               </h1>
             </div>
 
-            <div className="col-sm-16 ">
+            <div className="col-12 ">
               <p className="text text-light fs-5">
                 Disfruta de unas vacaciones inolvidables <br /> en nuestro
                 <span className="text-warning"> Hotel de lujo.</span>
@@ -86,15 +88,35 @@ function App() {
             </div>
           </div>
         </header>
+        <section id="porque-elegirnos" className="porque-elegirnos">
+          <div className="container text-center text-black  bg-opacity-75 rounded">
+            <h2 className="text display-4">¿Por qué elegirnos?</h2>
+            <div className="iconos-hotel">
+              <div className="icono">
+                <img src="/ubi.png" alt="Icono 1" />
+                <p>Ubicación céntrica</p>
+              </div>
+              <div className="icono">
+                <img src="/lujo.png" alt="Icono 2" />
+                <p>Comodidades de lujo</p>
+              </div>
+              <div className="icono">
+                <img src="/atencion.png" alt="Icono 3" />
+                <p>Atención personalizada</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className="d-flex justify-content-center align-content-center container">
           <div className="row p-2">
-            <div ref={roomsRef} className="col-12 col-md-4 col-lg-4 py-5 pb-1">
+            <div ref={roomsRef} className="col-12 col-md-6 col-lg-4 py-5 pb-1">
               <Rooms1 habitaciones={habitaciones} />
             </div>
 
             {/* Spacer para evitar que el contenido quede oculto detrás del header */}
             {/**/}
-            <div className="col-12 col-md-7 col-lg-8 ">
+            <div className="col-12 col-md-6 col-lg-8 ">
               <Services />
             </div>
           </div>

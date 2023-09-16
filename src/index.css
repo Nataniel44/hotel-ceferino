@@ -1,7 +1,12 @@
-
 body {
   margin: 0;
   padding: 0;
-    
-  background-color: #F7F7F7;
+
+  background-color: #f7f7f7;
+}
+/* App.css o tu archivo de estilos */
+.scrolled {
+  background-color: #000000; /* Cambia esto al color de fondo que desees cuando se hace scroll */
+  /* Otros estilos de fondo */
+  transition: background-color 0.3s ease; /* Agrega una transición suave */
 }

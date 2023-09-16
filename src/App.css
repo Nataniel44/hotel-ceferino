@@ -27,7 +27,7 @@
 /* Estilos del header */
 #fondo {
   background-color: #e6e6e6;
-  background-image: url("./5.jpg");
+  background-image: url("./hotel-cefe.jpg");
   background-size: cover;
   transition: transform 0.3s ease; /* Agregamos la transición para el efecto de animación */
 }
@@ -69,4 +69,39 @@
 
 .room-list-hidden {
   animation: slideUpAnimation 0.1s ease forwards;
+}
+
+/* Estilos para la sección "Por qué elegirnos" */
+.porque-elegirnos {
+  background-color: #e6e6e6;
+  padding: 30px 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los iconos */
+.iconos-hotel {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icono {
+  flex: 1;
+  margin: 0 15px;
+}
+
+.icono img {
+  width: 50px;
+  height: 50px;
+}
+
+.icono p {
+  margin-top: 10px;
 }

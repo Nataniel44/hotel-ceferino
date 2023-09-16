@@ -1,9 +1,33 @@
 import "../App.css";
+import { useEffect, useState } from "react";
+
 const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <div className="">
-        <nav className="navbar navbar-dark  fixed-top ">
+        <nav
+          id="navbar"
+          className={`navbar navbar-dark fixed-top ${
+            scrolled ? "scrolled" : ""
+          }`}
+        >
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img
