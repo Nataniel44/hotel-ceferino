@@ -6,32 +6,44 @@
 .text {
   font-family: "Raleway", sans-serif;
 }
-
+.shad{
+  filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.466));
+}
+.shad1{
+  filter: drop-shadow(0px 0px 10px rgba(255, 230, 0, 0.438));
+}
 #img {
   height: 150px;
 }
-
-#boton {
-  border-radius: 0%;
-  font-family: "Raleway", sans-serif;
+.vh-custom{
+  height: 100vh;
 }
-
+.bg-gris{
+  background-color: #E6E6E6;
+}
+.bg-header{
+  background-color: #0D0D0D;
+}
 /* Estilos del header */
 #fondo {
-  background-image: url("./fondo.jpg");
+  background-color: #E6E6E6;
+  background-image: url("./5.jpg");
   background-size: cover;
-}
-
-/* Estilos adicionales para el contenido cuando el header está fijo */
-
-/* Estilos de animación del header */
-header {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Agregamos la transición para el efecto de animación */
 }
 
 .header-hidden {
   transform: translateY(-100%);
 }
+
+/* Estilos del botón */
+#boton {
+  border-radius: 0;
+  font-family: "Raleway", sans-serif;
+  transition: opacity 0.3s ease; /* Agregamos la transición para el efecto de animación */
+}
+
+/* Estilos adicionales para el contenido cuando el header está fijo */
 
 /* Estilos del spacer */
 .spacer {
@@ -42,15 +54,10 @@ header {
 .spacer-visible {
   height: 50px; /* Ajusta el tamaño según el espacio que necesites */
 }
-/* Agregar a tu archivo App.css o en un archivo de estilos separado */
-/* Add this animation to create the fade-in effect */
-/* Add this animation to create the fade-in effect */
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
+
+/* Animación del contenido */
+@keyframes slideUpAnimation {
+  0% {
     opacity: 1;
     transform: translateY(0);
   }

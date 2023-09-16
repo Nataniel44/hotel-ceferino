@@ -1,6 +1,6 @@
 // Inside the App.js component
 import "./App.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Nav from "./componets/Nav";
 import Rooms from "./componets/Rooms";
 import Services from "./componets/Services";
@@ -10,22 +10,7 @@ function App() {
   const [showHeader, setShowHeader] = useState(true);
   const roomsRef = useRef(null);
 
-  useEffect(() => {
-    let prevScrollPos = window.pageYOffset;
-
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setShowHeader(currentScrollPos <= prevScrollPos);
-      prevScrollPos = currentScrollPos;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  
   const handleButtonClick = () => {
     setShowHeader(!showHeader);
 
@@ -37,20 +22,20 @@ function App() {
   return (
     <>
       <Nav />
-      <main className="container mt-2">
-        <header
-          className={`bg-dark text-white text-center vh-100 d-flex justify-content-center align-content-center flex-column border-bottom border-warning ${
-            showHeader ? "" : "header-hidden "
-          }`}
-          id="fondo"
-        >
-          <div className="bg-light bg-opacity-75 m-3 mt-5 p-3 border-1 border border-warning">
-            <div className="row  d-flex justify-content-center align-content-center p-3 bg-secundary">
-              <div className="col-12 col-md-6 p-0 d-flex justify-content-center align-content-center w-auto">
-                <img src="./2.png" alt="" />
+      <main className=" bg-gris  text-white">
+
+        <header className="bg-gris ms-5 me-5 text-white text-center
+         vh-100 d-flex justify-content-center
+          align-content-center flex-column border-bottom
+           border-warning p-5" id="fondo">
+          {/* Resto del contenido del header */}
+          <div className="bg-dark bg-opacity-75 m-5 border-1 border border-warning ">
+            <div className="row justify-content-center bg-secundary">
+              <div className="col-6 col-md-12 p-0 d-flex justify-content-center align-content-center w-auto ">
+                <img src="./2.png" className="shad  p-3  " alt="" />
               </div>
               <div className="col-md-6 col-sm-12 p-0 d-flex justify-content-center align-content-center w-auto ">
-                <h1 className="display-4 logo d-flex justify-content-center align-content-center align-items-center text-warning m-0 ">
+                <h1 className="display-4 logo d-flex justify-content-center align-content-center align-items-center text-warning m-0 w-100 p-3 shad1  ">
                   Ceferino Hotel
                 </h1>
               </div>
@@ -62,8 +47,8 @@ function App() {
               </p>
               <button
                 type="button"
-                className="btn btn-secondary"
-                id="boton"
+                className="btn btn-outline-light text shad"
+                id="boton" 
                 onClick={handleButtonClick}
               >
                 Hacer Reserva!
@@ -71,13 +56,14 @@ function App() {
             </div>
           </div>
         </header>
-        <div
-          className={`spacer ${showHeader ? "" : "spacer-visible"}`}
-          style={{ height: showHeader ? "0" : "50px" }}
-        ></div>
+        {/* Spacer para evitar que el contenido quede oculto detrás del header */}
+        {/**/}
         <div ref={roomsRef}>
-          <Rooms />
+        <div className="spacer-visible text-center" >
+          
         </div>
+        </div>
+          <Rooms className={showHeader ? "" : "room-list-hidden"} />
         <Services />
         <Footer />
       </main>

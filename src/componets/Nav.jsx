@@ -2,8 +2,8 @@ import "../App.css";
 const Nav = () => {
   return (
     <>
-      <div className="container">
-        <nav className="navbar navbar-light bg-light fixed-top border-bottom border-dark">
+      <div className="">
+        <nav className="navbar navbar-dark bg-header fixed-top border-bottom border-warning">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img

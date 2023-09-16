@@ -92,35 +92,31 @@ const Rooms = () => {
 
   return (
     <>
-      <div className="rooms-container fade-in">
-        <section className="py-4" ref={habitacionesSectionRef}>
-          <div className="container pt-2 bg-secondary p-5">
-            <h2 className="text-center m-0 display-5">Nuestras Habitaciones</h2>
-            {/* Agregamos un menú desplegable para seleccionar la habitación */}
-            <div className="row mb-4">
-              <div className="col">
-                <div className="form-group">
-                  <label htmlFor="habitacionSelect">
-                    Selecciona una habitación:
-                  </label>
-                  <select
-                    id="habitacionSelect"
-                    className="form-control"
-                    value={
-                      habitacionSeleccionada
-                        ? habitacionSeleccionada.id
-                        : "null"
-                    }
-                    onChange={handleHabitacionSeleccionada}
-                  >
-                    <option value="null">-- Todas las habitaciones --</option>
-                    {roomData.map((room) => (
-                      <option key={room.id} value={room.id}>
-                        {room.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+      <section className="" ref={habitacionesSectionRef}>
+        <div className="container my-3">
+          <h2 className="text-center mb-4 display-3 text-black">Nuestras Habitaciones</h2>
+          {/* Agregamos un menú desplegable para seleccionar la habitación */}
+          <div className="row mb-4">
+            <div className="col">
+              <div className="form-group">
+                <label htmlFor="habitacionSelect">
+                  Selecciona una habitación:
+                </label>
+                <select
+                  id="habitacionSelect"
+                  className="form-control"
+                  value={
+                    habitacionSeleccionada ? habitacionSeleccionada.id : "null"
+                  }
+                  onChange={handleHabitacionSeleccionada}
+                >
+                  <option value="null">-- Todas las habitaciones --</option>
+                  {roomData.map((room) => (
+                    <option key={room.id} value={room.id}>
+                      {room.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             {/* Fin del menú desplegable */}
@@ -244,8 +240,10 @@ const Rooms = () => {
               </div>
             )}
           </div>
+          </div>
         </section>
-      </div>
+          
+      
     </>
   );
 };
